@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{-- TAILWIND CSS --}}
+    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- DAISY UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.9/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -14,6 +21,27 @@
                     }
                 }
             }
+
+            plugins: [require("daisyui")],
+
+            // daisyUI config (optional - here are the default values)
+            daisyui: {
+                themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+                darkTheme: "dark", // name of one of the included themes for dark mode
+                base: true, // applies background color and foreground color for root element by default
+                styled: true, // include daisyUI colors and design decisions for all components
+                utils: true, // adds responsive and modifier utility classes
+                prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+                logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
+                themeRoot: ":root", // The element that receives theme color CSS variables
+            },
+        }
+
+        // add daisyUI plugin
+        
+
+        module.exports = {
+            plugins: [require("@tailwindcss/typography"), require("daisyui")],
         }
         
     </script>
@@ -26,9 +54,7 @@
         }
     </style>
 
-    <!-- DAISY UI -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.9/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    
 
     <title>Archico</title>
 
@@ -80,6 +106,10 @@
     </nav>
     <!-- End of NAVIGATION BAR -->
 
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
+
     <!-- DIFF -->
     <div class="diff aspect-[16/8]">
         <div class="diff-item-1">
@@ -97,12 +127,23 @@
         <div class="flex-auto w-1/4">
             <div class="avatar">
                 <div class="w-24 rounded-full">
-                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <img src="https://picsum.photos/200" />
                 </div>
             </div>
         </div>
         <div class="flex-auto w-3/4">
-            03
+            <h1>Archico Darius Simpar Sembiring</h1>
+            <p>
+                Halo, My Name is Archico. I have interest in Technologies and Creative Design. For Technology, 
+                I've learn about Software Engineering and Artificial Intelligence. And for Creative Design, 
+                I've learn about Graphic Design, Photography, and Cinematography. 
+                I often combine those two kind of my interest to became a complete unified interest. 
+                I have area of interest in digital arts, both in Graphic Design and UI/UX Design. 
+                I have a lot of experience in graphic design, from editing, illustrating, photography, videography. 
+                And then I implemented that experience into my study of Informatics in the form of UI/UX Design 
+                for developing websites and applications. I'm also on going to explore front-end and back-end developer, 
+                by leading and directing a few simple projects.
+            </p>
         </div>
     </div>
     <!-- End of ABOUT SECTION -->
