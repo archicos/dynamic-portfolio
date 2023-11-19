@@ -126,7 +126,7 @@
         <div class="flex flex-col flex-auto w-3/4 pr-40 gap-4">
             <h1 class="font-bold text-xl">Archico Darius Simpar Sembiring</h1>
             <p>
-                Halo, My Name is <strong>Archico</strong>. I have interest in Technologies and Creative Design. For Technology, 
+                Hello, My Name is <strong>Archico</strong>. I have interest in Technologies and Creative Design. For Technology, 
                 I've learn about Software Engineering and Artificial Intelligence. And for Creative Design, 
                 I've learn about Graphic Design, Photography, and Cinematography. 
                 I often combine those two kind of my interest to became a complete unified interest. 
@@ -145,15 +145,14 @@
     <!-- End of ABOUT SECTION -->
 
     <!-- TOOLS SECTION -->
-    <section class="px-20 py-10 ">
+    <section class="px-20 py-10">
 
-        <h2 class="font-bold text-2xl pb-4">Tools</h2>
+        <h2 class="font-bold text-2xl pb-4 text-center">Tools</h2>
+        <button class="btn btn-sm btn-success mb-4">Add New +</button>
 
-        <div class="grid grid-cols-2 gap-10">
-
-            
+        <div class="grid grid-cols-2 gap-10">           
             <div class="flex flex-col gap-4">
-                <h3 class="font-bold text-md">Technology</h3>
+                <h3 class="font-bold text-md text-center">Technology</h3>
                 <div class="flex flex-row justify-between"><p>C</p><p>70%</p></div>
                 <progress class="progress progress-primary" value="70" max="100"></progress>
                 <div class="flex flex-row justify-between"><p>Java</p><p>70%</p></div>
@@ -170,10 +169,14 @@
                 <progress class="progress progress-primary" value="85" max="100"></progress>
                 <div class="flex flex-row justify-between"><p>SQL</p><p>85%</p></div>
                 <progress class="progress progress-primary" value="78" max="100"></progress>
+                <div class="flex flex-row gap-2">
+                    <button class="btn btn-sm btn-warning mb-4">Edit</button>
+                    <button class="btn btn-sm btn-error mb-4">Delete</button>
+                </div>
             </div>
         
             <div class="flex flex-col gap-4">
-                <h3 class="font-bold text-md">Creativity</h3>
+                <h3 class="font-bold text-md text-center">Creativity</h3>
                 <div class="flex flex-row justify-between"><p>Adobe Photoshop</p><p>95%</p></div>
                 <progress class="progress progress-primary" value="95" max="100"></progress>
                 <div class="flex flex-row justify-between"><p>Adobe Premiere Pro</p><p>97%</p></div>
@@ -190,6 +193,10 @@
                 <progress class="progress progress-primary" value="89" max="100"></progress>
                 <div class="flex flex-row justify-between"><p>SketchUp</p><p>77%</p></div>
                 <progress class="progress progress-primary" value="77" max="100"></progress>
+                <div class="flex flex-row gap-2">
+                    <button class="btn btn-sm btn-warning mb-4">Edit</button>
+                    <button class="btn btn-sm btn-error mb-4">Delete</button>
+                </div>
             </div>
         
         </div>
@@ -199,6 +206,7 @@
     <!-- SKILLS SECTION -->
     <section class="px-20 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Softskill</h2>
+        <button class="btn btn-sm btn-success mb-4">Add New +</button>
 
         <div class="flex flex-row flex-wrap gap-4 justify-center">
             <div class="flex flex-col gap-4">
@@ -235,13 +243,18 @@
     <!-- PROJECT SECTION -->
     <section class="px-20 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Project</h2>
+        <button class="btn btn-sm btn-success mb-4">Add New +</button>
         <div class="flex flex-row flex-wrap gap-4 justify-center">
             <div class="card w-80 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
+                    <div class="flex flex-row gap-2">
+                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
+                        <button class="btn btn-sm btn-error mb-4">Delete</button>
+                    </div>
                     <h2 class="card-title">
                         Clicknic
-                        <div class="badge badge-secondary">Apps</div>
+                        <div class="badge badge-secondary">Apps</div>         
                     </h2>
                     <p>
                         A Clinic Medical Database System Management Application to manage Patient Data and Medicine Data 
@@ -252,11 +265,16 @@
                         <div class="badge badge-outline">Java</div>
                         <div class="badge badge-outline">SQL</div>
                     </div>
+                    
                 </div>
             </div>
             <div class="card w-80 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
+                    <div class="flex flex-row gap-2">
+                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
+                        <button class="btn btn-sm btn-error mb-4">Delete</button>
+                    </div>
                     <h2 class="card-title">
                         Sobat Listrik
                         <div class="badge badge-secondary">UI/UX</div>
@@ -275,6 +293,10 @@
             <div class="card w-80 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
+                    <div class="flex flex-row gap-2">
+                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
+                        <button class="btn btn-sm btn-error mb-4">Delete</button>
+                    </div>
                     <h2 class="card-title">
                         Talent Review Process
                         <div class="badge badge-secondary">RPA</div>
@@ -293,6 +315,10 @@
             <div class="card w-80 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
+                    <div class="flex flex-row gap-2">
+                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
+                        <button class="btn btn-sm btn-error mb-4">Delete</button>
+                    </div>
                     <h2 class="card-title">
                         Terbang Bersama Boemi
                         <div class="badge badge-secondary">Film</div>
@@ -315,7 +341,27 @@
     <!-- EXPERIENCE SECTION -->
     <section class="px-20 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Experience</h2>
+        <button class="btn btn-sm btn-success mb-4" onclick="my_modal_4.showModal()">Add New +</button>
         <div class="flex flex-col gap-4">
+
+            @foreach ($experienceList as $data)
+                <div class="collapse collapse-plus bg-base-200">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title text-xl font-medium">
+                        <a href="{{$data->link}}">{{$data->title}}</a>
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            {{$data->description}}
+                        </p>
+                    </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
+                    </div>
+                </div>
+            @endforeach
+
                 <div class="collapse collapse-plus bg-base-200">
                     <input type="radio" name="my-accordion-3" checked="checked" />
                     <div class="collapse-title text-xl font-medium">
@@ -327,6 +373,10 @@
                             by Jetpack Compose on Google Environment.
                         </p>
                     </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
+                    </div>
                 </div>
                 <div class="collapse collapse-plus bg-base-200">
                     <input type="radio" name="my-accordion-3" />
@@ -337,6 +387,10 @@
                         <p>
                             Selected as a Core Team at Mobile Development Path, and successfully organized workshop, info session, google events, and finished Juara Android Compose Camp.
                         </p>
+                    </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
                     </div>
                 </div>
                 <div class="collapse collapse-plus bg-base-200">
@@ -351,6 +405,10 @@
                                 <li>- Successfully built Robot Processing Automation for Talent Review Process for StarConnect website using IBM RPA Studio, and presented to CEO of ONE Indonesia and executive of IFT Group Indonesia.</li>
                             </ul>
                         </p>
+                    </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
                     </div>
                 </div>
                 <div class="collapse collapse-plus bg-base-200">
@@ -368,6 +426,10 @@
                             </ul>
                         </p>
                     </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
+                    </div>
                 </div>
                 <div class="collapse collapse-plus bg-base-200">
                     <input type="radio" name="my-accordion-3" />
@@ -378,6 +440,10 @@
                         <p>
                             Grade of Basic Programming Courses for Informatics students increased by around 20% from the    previous year, especially in implementation.
                         </p>
+                    </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
                     </div>
                 </div>
                 <div class="collapse collapse-plus bg-base-200">
@@ -391,6 +457,10 @@
                             <li>- Equip new students with basic knowledge needed before entering college, and students can successfully master the basic of C Programming, Basic of Photoshop, Basic of Microsoft Office.</li>
                         </ul>
                     </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
+                    </div>
                 </div>
                 <div class="collapse collapse-plus bg-base-200">
                     <input type="radio" name="my-accordion-3" />
@@ -402,8 +472,37 @@
                             Lead around 450+ new students to recognize a disciplined and integrity boarding life by teaching table manners, time management, and ethics code. Students become able to manage busy schedule well, greet everyone they meet, and eat with manners, after almost 2 years of studying from home due to pandemic.
                         </p>
                     </div>
+                    <div class="flex flex-row gap-2 m-4 ">
+                        <button class="btn btn-sm btn-warning w-16">Edit</button>
+                        <button class="btn btn-sm btn-error w-16">Delete</button>
+                    </div>
                 </div>
         </div>
+
+        {{-- POP UP INPUT EXPERIENCE --}}
+        <dialog id="my_modal_4" class="modal">
+        <div class="modal-box w-11/12 max-w-5xl">
+            <h3 class="font-bold text-lg mb-2">Add New Experience</h3>
+            
+            <div class="flex flex-col">
+                <label class="label label-text">Title</label>
+                <input type="text" placeholder="Type here..." class="input input-bordered mb-1" />
+                <label class="label label-text">Description</label>
+                <textarea class="textarea textarea-bordered mb-1" placeholder="Type here..."></textarea>
+                <label class="label label-text">Hyperlink</label>
+                <input type="text" placeholder="Type here..." class="input input-bordered mb-1" />
+            </div>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button, it will close the modal -->
+                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-secondary">Close</button>
+                </form>
+            </div>
+        </div>
+        </dialog>
+
     </section>
     <!-- End of Experience Section -->
 
