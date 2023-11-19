@@ -1,17 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {
-        colors: {
-            clifford: '#da373d',
-        }
-    }
+    extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 }
 
