@@ -20,7 +20,21 @@ class ExperienceController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description'=> 'required',
+            'link'=> 'required',
+        ]);
+
+        $exps = new Experience;
+
+        $exps->title = $request->input('title');
+        $exps->description = $request->input('description');
+        $exps->link = $request->input('link');
+
+        $exps->save();
+
+        return redirect('/')->with('success','Data saved');
     }
 
     public function show(string $id)

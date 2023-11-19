@@ -21,4 +21,6 @@ Route::get('/', function () {
 Route::get('/', [ExperienceController::class,'index']);
 Route::get('/', [ExperienceController::class,'index']);
 
-Route::resource('/experience', 'ExperienceController');
+// Route::resource('/experience', 'ExperienceController');
+
+Route::post('/experiences/store', [ExperienceController::class, 'store'])->name('experiences.store');

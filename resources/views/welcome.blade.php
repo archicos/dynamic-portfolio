@@ -481,27 +481,51 @@
 
         {{-- POP UP INPUT EXPERIENCE --}}
         <dialog id="my_modal_4" class="modal">
-        <div class="modal-box w-11/12 max-w-5xl">
-            <h3 class="font-bold text-lg mb-2">Add New Experience</h3>
-            
-            <div class="flex flex-col">
-                <label class="label label-text">Title</label>
-                <input type="text" placeholder="Type here..." class="input input-bordered mb-1" />
-                <label class="label label-text">Description</label>
-                <textarea class="textarea textarea-bordered mb-1" placeholder="Type here..."></textarea>
-                <label class="label label-text">Hyperlink</label>
-                <input type="text" placeholder="Type here..." class="input input-bordered mb-1" />
-            </div>
+            <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg mb-2">Add New Experience</h3>
+                
+                <form action="{{ route('experiences.store') }}" method="POST">
+                    @csrf
+                    <div class="flex flex-col">
+                        <label class="label label-text">Title</label>
+                        <input name="title" type="text" placeholder="Type here..." class="input input-bordered mb-1" />
+                        <label class="label label-text">Description</label>
+                        <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="Type here..."></textarea>
+                        <label class="label label-text">Hyperlink</label>
+                        <input name="link" type="text" placeholder="Type here..." class="input input-bordered mb-1" />
+                    </div>
 
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button, it will close the modal -->
-                    <button class="btn btn-primary">Save</button>
-                    <button class="btn btn-secondary">Close</button>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button, it will close the modal -->
+                            <button class="btn btn-primary">Save</button>
+                            <button class="btn btn-secondary">Close</button>
+                        </form>
+                    </div>
                 </form>
             </div>
-        </div>
         </dialog>
+        
+        {{-- ERROR MESSAGE --}}
+        @if (count($errors) > 0)
+            <div role="alert" class="alert alert-error fixed top-20 left-20 right-0 w-72">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>{{ $error }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (\Session::has('success'))
+            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{ \Session::get('success') }}</span>
+            </div>
+        @endif
 
     </section>
     <!-- End of Experience Section -->
