@@ -62,7 +62,7 @@
 <body class="font-sans">
     
     <!-- NAVIGATION BAR -->
-    <nav>
+    <nav class="fixed top-0 left-0 right-0 z-10 shadow-lg sm:shadow">
         <div class="navbar bg-base-100">
             <div class="navbar-start">
                 <div class="dropdown">
@@ -109,21 +109,21 @@
     <!-- DIFF -->
     <div class="diff aspect-[16/8]">
         <div class="diff-item-1">
-            <img alt="daisy" src="https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg" />
+            <img alt="daisy" src="{{ asset('img/home/jumbo-a.jpg') }}" />
         </div>
         <div class="diff-item-2">
-            <img alt="daisy" src="https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg" />
+            <img alt="daisy" src="{{ asset('img/home/jumbo-b.jpg') }}" />
         </div>
         <div class="diff-resizer"></div>
     </div>
     <!-- End of DIFF -->
 
     <!-- ABOUT SECTION -->
-    <div class="flex gap-10 px-20 py-10">
-        <div class="flex flex-auto w-1/4 justify-end items-center">
-            <img class="rounded-lg" src="https://picsum.photos/250" />
+    <div class="flex flex-col sm:flex-row gap-10 sm:px-20 px-5 py-10">
+        <div class="flex flex-auto w-full sm:w-1/4 justify-center sm:justify-end items-center">
+            <img class="rounded-lg" src="{{ asset('img/about/malioboro.jpg') }}" />
         </div>
-        <div class="flex flex-col flex-auto w-3/4 pr-40 gap-4">
+        <div class="flex flex-col flex-auto w-full sm:w-3/4 pr-0 sm:pr-40 gap-4">
             <h1 class="font-bold text-xl">Archico Darius Simpar Sembiring</h1>
             <p>
                 Hello, My Name is <strong>Archico</strong>. I have interest in Technologies and Creative Design. For Technology, 
@@ -137,38 +137,38 @@
                 by leading and directing a few simple projects.
             </p>
             <div class="flex flex-row gap-4">
-                <button class="btn btn-wide">Resume</button>
-                <button class="btn btn-wide">LinkedIn</button>
+                <button class="btn btn-info w-1/2 sm:btn-wide">Resume</button>
+                <button class="btn btn-info w-1/2 sm:btn-wide">LinkedIn</button>
             </div>
         </div>
     </div>
     <!-- End of ABOUT SECTION -->
 
     <!-- TOOLS SECTION -->
-    <section class="px-20 py-10">
+    <section class="sm:px-20 px-5 py-10">
 
         <h2 class="font-bold text-2xl pb-4 text-center">Tools</h2>
         <button class="btn btn-sm btn-success mb-4">Add New +</button>
 
-        <div class="grid grid-cols-2 gap-10">           
+        <div class="grid grid-cols-2 gap-5 sm:gap-10">           
             <div class="flex flex-col gap-4">
                 <h3 class="font-bold text-md text-center">Technology</h3>
-                <div class="flex flex-row justify-between"><p>C</p><p>70%</p></div>
-                <progress class="progress progress-primary" value="70" max="100"></progress>
-                <div class="flex flex-row justify-between"><p>Java</p><p>70%</p></div>
-                <progress class="progress progress-primary" value="80" max="100"></progress>
-                <div class="flex flex-row justify-between"><p>Javascript</p><p>80%</p></div>
-                <progress class="progress progress-primary" value="90" max="100"></progress>
-                <div class="flex flex-row justify-between"><p>PHP Laravel</p><p>90%</p></div>
-                <progress class="progress progress-primary" value="72" max="100"></progress>
-                <div class="flex flex-row justify-between"><p>Python</p><p>72%</p></div>
-                <progress class="progress progress-primary" value="40" max="100"></progress>
-                <div class="flex flex-row justify-between"><p>Bootstrap CSS</p><p>40%</p></div>
-                <progress class="progress progress-primary" value="90" max="100"></progress>
-                <div class="flex flex-row justify-between"><p>Tailwind CSS</p><p>90%</p></div>
-                <progress class="progress progress-primary" value="85" max="100"></progress>
-                <div class="flex flex-row justify-between"><p>SQL</p><p>85%</p></div>
-                <progress class="progress progress-primary" value="78" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">C</p><p>70%</p></div>
+                <progress class="progress progress-info" value="70" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">Java</p><p>70%</p></div>
+                <progress class="progress progress-info" value="80" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">Javascript</p><p>80%</p></div>
+                <progress class="progress progress-info" value="90" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">PHP Laravel</p><p>90%</p></div>
+                <progress class="progress progress-info" value="72" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">Python</p><p>72%</p></div>
+                <progress class="progress progress-info" value="40" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">Bootstrap CSS</p><p>40%</p></div>
+                <progress class="progress progress-info" value="90" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">Tailwind CSS</p><p>90%</p></div>
+                <progress class="progress progress-info" value="85" max="100"></progress>
+                <div class="flex flex-row justify-between"><p class="font-semibold">SQL</p><p>85%</p></div>
+                <progress class="progress progress-info" value="78" max="100"></progress>
                 <div class="flex flex-row gap-2">
                     <button class="btn btn-sm btn-warning mb-4">Edit</button>
                     <button class="btn btn-sm btn-error mb-4">Delete</button>
@@ -204,7 +204,7 @@
     <!-- End of SKILLS SECTION -->
 
     <!-- SKILLS SECTION -->
-    <section class="px-20 py-10">
+    <section class="sm:px-20 px-5 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Softskill</h2>
         <button class="btn btn-sm btn-success mb-4">Add New +</button>
 
@@ -241,11 +241,11 @@
     </section>
 
     <!-- PROJECT SECTION -->
-    <section class="px-20 py-10">
+    <section class="sm:px-20 px-5 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Project</h2>
         <button class="btn btn-sm btn-success mb-4">Add New +</button>
         <div class="flex flex-row flex-wrap gap-4 justify-center">
-            <div class="card w-80 bg-base-100 shadow-xl">
+            <div class="card w-max sm:w-80 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
                     <div class="flex flex-row gap-2">
@@ -254,7 +254,7 @@
                     </div>
                     <h2 class="card-title">
                         Clicknic
-                        <div class="badge badge-secondary">Apps</div>         
+                        <div class="badge badge-info">Apps</div>         
                     </h2>
                     <p>
                         A Clinic Medical Database System Management Application to manage Patient Data and Medicine Data 
@@ -277,7 +277,7 @@
                     </div>
                     <h2 class="card-title">
                         Sobat Listrik
-                        <div class="badge badge-secondary">UI/UX</div>
+                        <div class="badge badge-info">UI/UX</div>
                     </h2>
                     <p>
                         An User Interface and User Excperience Design 
@@ -299,7 +299,7 @@
                     </div>
                     <h2 class="card-title">
                         Talent Review Process
-                        <div class="badge badge-secondary">RPA</div>
+                        <div class="badge badge-info">RPA</div>
                     </h2>
                     <p>
                         A Robot Processing Automation using IBM RPA Studio 
@@ -321,7 +321,7 @@
                     </div>
                     <h2 class="card-title">
                         Terbang Bersama Boemi
-                        <div class="badge badge-secondary">Film</div>
+                        <div class="badge badge-info">Film</div>
                     </h2>
                     <p>
                         A Musical Theatre Drama that Fully Filmed and staged about 
@@ -339,148 +339,128 @@
     <!-- End of BLOG SECTION -->
 
     <!-- EXPERIENCE SECTION -->
-    <section class="px-20 py-10">
+    <section class="px-5 sm:px-20 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Experience</h2>
-        <button class="btn btn-sm btn-success mb-4" onclick="my_modal_4.showModal()">Add New +</button>
+        <button class="btn btn-sm btn-success mb-4" onclick="addExperiencePopUp.showModal()">Add New +</button>
         <div class="flex flex-col gap-4">
 
-            @foreach ($experienceList as $data)
+            @foreach ($experienceList as $experience)
+            
+                {{-- EXPERIENCE ITEM --}}
                 <div class="collapse collapse-plus bg-base-200">
                     <input type="radio" name="my-accordion-3" checked="checked" />
                     <div class="collapse-title text-xl font-medium">
-                        <a href="{{$data->link}}">{{$data->title}}</a>
+                        <a href="{{$experience->link}}">{{$experience->title}}</a>
                     </div>
                     <div class="collapse-content">
                         <p>
-                            {{$data->description}}
+                            {{$experience->description}}
                         </p>
                     </div>
                     <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
+                        <button class="btn btn-sm btn-warning w-16" onclick="popupEditExperience({{$experience->id}})">Edit</button>
+                        <button class="btn btn-sm btn-error w-16" onclick="popupDeleteExperience({{ $experience->id }})">Delete</button>
                     </div>
                 </div>
+
+                {{-- POP UP EDIT EXPERIENCE --}}
+                <dialog id="editExperiencePopUp-{{ $experience->id }}" class="modal">
+                    <div class="modal-box w-11/12 max-w-5xl">
+                        <h3 class="font-bold text-lg mb-2">Edit Experience</h3>
+                        
+                        <form action="{{ route('experiences.update', $experience->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <div class="flex flex-col">
+                                <label for="title" class="label label-text">Title</label>
+                                <input name="title" type="text" value="{{ $experience->title }}" placeholder="{{ $experience->title }}" class="input input-bordered mb-1" required/>
+                                <label for="description" class="label label-text">Description</label>
+                                <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="{{ $experience->description }}" required>{{ $experience->title }}</textarea>
+                                <label for="link" class="label label-text">Hyperlink</label>
+                                <input name="link" type="text" value="{{ $experience->title }}" placeholder="{{ $experience->link }}" class="input input-bordered mb-1" required/>
+                            </div>
+
+                            <div class="modal-action">
+                                    <!-- if there is a button, it will close the modal -->
+                                <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                                <form method="dialog">
+                                    <button class="btn btn-secondary">Close</button>
+                                </form>
+                            </div>
+                    </div>
+                </dialog>
+
+                {{-- POP UP DELETE EXPERIENCE --}}
+                <div id="deleteExperiencePopUp-{{ $experience->id }}" role="alert" class="alert fixed top-0 left-0 right-0 m-20 w-fit hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    <div>
+                        <h3 class="font-bold">Delete Confirmation!</h3>
+                        <div class="text">You will delete <span class="text-error font-semibold">{{ $experience->title }}</span>. Are you sure?</div>
+                    </div>
+                    <form action="{{ route('experiences.destroy', $experience->id) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <div>
+                            <button type="submit" class="btn btn-sm btn-error">Delete</button>
+                        </form>
+                        <a class="btn btn-sm" onclick="closeDeleteExperience({{ $experience->id }})">Cancel</a>
+                    </div>
+                </div>
+                
+                
+                {{-- SCRIPT FOR EXPERIENCE --}}
+                <script>
+                    function popupEditExperience(dialogId) {
+                        var modal = document.getElementById("editExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.showModal();
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function closeEditExperience(dialogId) {
+                        var modal = document.getElementById("editExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.closeModal();
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function popupDeleteExperience(dialogId) {
+                        var modal = document.getElementById("deleteExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.classList.remove('hidden');
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function closeDeleteExperience(dialogId) {
+                        var modal = document.getElementById("deleteExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.classList.add('hidden');
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function confirmDelete(experienceId) {
+                        var isConfirmed = confirm('Are you sure you want to delete this experience?');
+                        if (isConfirmed) {
+                            deleteExperience(experienceId);
+                        }
+                    }
+                </script>
+
             @endforeach
 
-                <div class="collapse collapse-plus bg-base-200">
-                    <input type="radio" name="my-accordion-3" checked="checked" />
-                    <div class="collapse-title text-xl font-medium">
-                        Juara Android Compose Camp, Google
-                    </div>
-                    <div class="collapse-content">
-                        <p>
-                            Successfully finished all 25 course badges for Android Development using Kotlin and Android Studio
-                            by Jetpack Compose on Google Environment.
-                        </p>
-                    </div>
-                    <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
-                    </div>
-                </div>
-                <div class="collapse collapse-plus bg-base-200">
-                    <input type="radio" name="my-accordion-3" />
-                    <div class="collapse-title text-xl font-medium">
-                        Google Developer Students Club
-                    </div>
-                    <div class="collapse-content">
-                        <p>
-                            Selected as a Core Team at Mobile Development Path, and successfully organized workshop, info session, google events, and finished Juara Android Compose Camp.
-                        </p>
-                    </div>
-                    <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
-                    </div>
-                </div>
-                <div class="collapse collapse-plus bg-base-200">
-                    <input type="radio" name="my-accordion-3" />
-                    <div class="collapse-title text-xl font-medium">
-                        ICStar Hackathon 2023, ONE Indonesia
-                    </div>
-                    <div class="collapse-content">
-                        <p>
-                            <ul>
-                                <li>- Become a team from all of the nation that selected, trained, and assigned to complete use case of collaborated company from IDStar, IFT Group Indonesia.</li>
-                                <li>- Successfully built Robot Processing Automation for Talent Review Process for StarConnect website using IBM RPA Studio, and presented to CEO of ONE Indonesia and executive of IFT Group Indonesia.</li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
-                    </div>
-                </div>
-                <div class="collapse collapse-plus bg-base-200">
-                    <input type="radio" name="my-accordion-3" />
-                    <div class="collapse-title text-xl font-medium">
-                        Department of Communication and Information
-                    </div>
-                    <div class="collapse-content">
-                        <p>
-                            <ul>
-                                <li>- Head of Department, manages 4 divisions: Publication, Documentation, Design, Information System.</li>
-                                <li>- Chief Executive of Short Movie Competition. Lead a Short Movie Competition with theme 'What If?' with total grand prizes of Rp.2.000.000. Successfully got 3 winners from 8 movies.</li>
-                                <li>- Coordinator of Multimedia on Photography Contest. Handle multimedia on contest with total grand prize of Rp.1.000.000. Successfully got 3 winners from 58 contestants.</li>
-                                <li>- Division of Design. Create social media template, greeting post, twibbon, poster, and recap post.</li>
-                            </ul>
-                        </p>
-                    </div>
-                    <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
-                    </div>
-                </div>
-                <div class="collapse collapse-plus bg-base-200">
-                    <input type="radio" name="my-accordion-3" />
-                    <div class="collapse-title text-xl font-medium">
-                        Lecturer Assistant of Basic Programming 
-                    </div>
-                    <div class="collapse-content">
-                        <p>
-                            Grade of Basic Programming Courses for Informatics students increased by around 20% from the    previous year, especially in implementation.
-                        </p>
-                    </div>
-                    <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
-                    </div>
-                </div>
-                <div class="collapse collapse-plus bg-base-200">
-                    <input type="radio" name="my-accordion-3" />
-                    <div class="collapse-title text-xl font-medium">
-                        Assistant of Matriculation
-                    </div>
-                    <div class="collapse-content">
-                        <ul>
-                            <li>- Leading around 450+ new students in operating the tech support provided by the campus, and students successfully operating campus mailing, campus information systems, and campus courses.</li>
-                            <li>- Equip new students with basic knowledge needed before entering college, and students can successfully master the basic of C Programming, Basic of Photoshop, Basic of Microsoft Office.</li>
-                        </ul>
-                    </div>
-                    <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
-                    </div>
-                </div>
-                <div class="collapse collapse-plus bg-base-200">
-                    <input type="radio" name="my-accordion-3" />
-                    <div class="collapse-title text-xl font-medium">
-                        Student Orientation Program and Student Leadership Program
-                    </div>
-                    <div class="collapse-content">
-                        <p>
-                            Lead around 450+ new students to recognize a disciplined and integrity boarding life by teaching table manners, time management, and ethics code. Students become able to manage busy schedule well, greet everyone they meet, and eat with manners, after almost 2 years of studying from home due to pandemic.
-                        </p>
-                    </div>
-                    <div class="flex flex-row gap-2 m-4 ">
-                        <button class="btn btn-sm btn-warning w-16">Edit</button>
-                        <button class="btn btn-sm btn-error w-16">Delete</button>
-                    </div>
-                </div>
         </div>
 
-        {{-- POP UP INPUT EXPERIENCE --}}
-        <dialog id="my_modal_4" class="modal">
+        {{-- POP UP ADD EXPERIENCE --}}
+        <dialog id="addExperiencePopUp" class="modal">
             <div class="modal-box w-11/12 max-w-5xl">
                 <h3 class="font-bold text-lg mb-2">Add New Experience</h3>
                 
@@ -521,20 +501,44 @@
         @endif
 
         @if (\Session::has('success'))
-            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72">
+            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72" id="successAlert">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <span>{{ \Session::get('success') }}</span>
             </div>
+
+            <script>
+                var successAlert = document.getElementById('successAlert');
+
+                setTimeout(function() {
+                    successAlert.classList.add('opacity-0');
+                }, 4000);
+            </script>
+        
+        @elseif (\Session::has('error'))
+            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72" id="errorAlert">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{ \Session::get('success') }}</span>
+            </div>
+
+            <script>
+                var errorAlert = document.getElementById('errorAlert');
+
+                setTimeout(function() {
+                    errorAlert.classList.add('opacity-0');
+                }, 4000);
+            </script>
         @endif
+
+        
 
     </section>
     <!-- End of Experience Section -->
 
     <!-- EDUCATION SECTION -->
-    <section class=" px-20 py-10">
+    <section class="px-5 sm:px-20 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Education</h2>
 
-        <ul class="timeline timeline-horizontal justify-center">
+        <ul class="timeline timeline-vertical sm:timeline-horizontal justify-center">
             <li>
                 <div class="timeline-start">2008</div>
                 <div class="timeline-middle">
@@ -603,7 +607,7 @@
     <!-- End of Education Section -->
 
     <!-- FOOTER SECTION -->
-    <footer class="footer footer-center p-10 bg-primary text-primary-content">
+    <footer class="footer footer-center p-10 bg-slate-800 text-neutral-content">
         <aside>
             <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                 clip-rule="evenodd" class="inline-block fill-current">
