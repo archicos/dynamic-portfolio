@@ -119,7 +119,7 @@
     <!-- End of DIFF -->
 
     <!-- ABOUT SECTION -->
-    <div class="flex gap-10 px-20 py-10">
+    <div class="flex flex-row sm:flex-col gap-10 px-20 sm:px-5 py-10">
         <div class="flex flex-auto w-1/4 justify-end items-center">
             <img class="rounded-lg" src="https://picsum.photos/250" />
         </div>
