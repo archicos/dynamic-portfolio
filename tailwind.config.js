@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         clifford: '#da373d',
+        primary: '#164e63'
       }
     }
   },
