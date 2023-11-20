@@ -24,3 +24,6 @@ Route::get('/', [ExperienceController::class,'index']);
 // Route::resource('/experience', 'ExperienceController');
 
 Route::post('/experiences/store', [ExperienceController::class, 'store'])->name('experiences.store');
+Route::get('/experiences/{id}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
+Route::patch('/experiences/{id}', [ExperienceController::class, 'update'])->name('experiences.update');
+Route::delete('/experiences/{id}/destroy', [ExperienceController::class, 'destroy'])->name('experiences.destroy');
