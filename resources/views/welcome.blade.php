@@ -12,50 +12,6 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.9/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
-
-            plugins: [require("daisyui")],
-
-            // daisyUI config (optional - here are the default values)
-            daisyui: {
-                themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-                darkTheme: "dark", // name of one of the included themes for dark mode
-                base: true, // applies background color and foreground color for root element by default
-                styled: true, // include daisyUI colors and design decisions for all components
-                utils: true, // adds responsive and modifier utility classes
-                prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-                logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-                themeRoot: ":root", // The element that receives theme color CSS variables
-            },
-        }
-
-        // add daisyUI plugin
-        
-
-        module.exports = {
-            plugins: [require("@tailwindcss/typography"), require("daisyui")],
-        }
-        
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
-        }
-    </style>
-
-    
-
     <title>Archico</title>
 
 </head>
@@ -245,7 +201,7 @@
         <h2 class="font-bold text-2xl pb-4 text-center">Project</h2>
         <button class="btn btn-sm btn-success mb-4">Add New +</button>
         <div class="flex flex-row flex-wrap gap-4 justify-center">
-            <div class="card w-max sm:w-80 bg-base-100 shadow-xl">
+            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
                     <div class="flex flex-row gap-2">
@@ -268,7 +224,7 @@
                     
                 </div>
             </div>
-            <div class="card w-80 bg-base-100 shadow-xl">
+            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
                     <div class="flex flex-row gap-2">
@@ -290,7 +246,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card w-80 bg-base-100 shadow-xl">
+            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
                     <div class="flex flex-row gap-2">
@@ -312,7 +268,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card w-80 bg-base-100 shadow-xl">
+            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
                 <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
                     <div class="flex flex-row gap-2">
