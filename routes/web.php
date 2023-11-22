@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ExperienceController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExperienceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware('auth');
 
-Route::get('/', [ExperienceController::class,'index']);
-Route::get('/', [ExperienceController::class,'index']);
+Route::get('/', [ExperienceController::class,'index'])->middleware('auth');
 
 // Route::resource('/experience', 'ExperienceController');
 
@@ -31,3 +31,10 @@ Route::delete('/experiences/{id}/destroy', [ExperienceController::class, 'destro
 Route::get('/login', function () {
     return view('login');
 });
+
+// LOGIN
+
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticating'])->name('authenticating');
+
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
