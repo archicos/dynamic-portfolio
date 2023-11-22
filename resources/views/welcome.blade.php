@@ -40,14 +40,8 @@
                 <a class="btn btn-ghost text-xl">Archico</a>
             </div>
             <div class="navbar-end">
-                <button class="btn btn-ghost btn-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </button>
-                <button class="btn btn-ghost btn-circle">
+                <p>Admin Mode</p>
+                <a href="/logout" class="btn btn-ghost btn-circle">
                     <div class="indicator">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -56,7 +50,7 @@
                         </svg>
                         <span class="badge badge-xs badge-primary indicator-item"></span>
                     </div>
-                </button>
+                </a>
             </div>
         </div>
     </nav>
@@ -165,34 +159,106 @@
         <button class="btn btn-sm btn-success mb-4">Add New +</button>
 
         <div class="flex flex-row flex-wrap gap-4 justify-center">
-            <div class="flex flex-col gap-4">
-                <p class="text-center">Problem Solving</p>
-                <div class="radial-progress" style="--value:88; --size:9rem; --thickness: 8px;" role="progressbar">88%</div>
-            </div>
-            <div class="flex flex-col gap-4">
-                <p class="text-center">Leadership</p>
-                <div class="radial-progress" style="--value:84; --size:9rem; --thickness: 8px;" role="progressbar">84%</div>
-            </div>
-            <div class="flex flex-col gap-4">
-                <p class="text-center">Public Speaking</p>
-                <div class="radial-progress" style="--value:80; --size:9rem; --thickness: 8px;" role="progressbar">80%</div>
-            </div>
-            <div class="flex flex-col gap-4">
-                <p class="text-center">Communication</p>
-                <div class="radial-progress" style="--value:82; --size:9rem; --thickness: 8px;" role="progressbar">82%</div>
-            </div>
-            <div class="flex flex-col gap-4">
-                <p class="text-center">Critical Thinking</p>
-                <div class="radial-progress" style="--value:90; --size:9rem; --thickness: 8px;" role="progressbar">90%</div>
-            </div>
-            <div class="flex flex-col gap-4">
-                <p class="text-center">Bahasa Indonesia</p>
-                <div class="radial-progress" style="--value:95; --size:9rem; --thickness: 8px;" role="progressbar">95%</div>
-            </div>
-            <div class="flex flex-col gap-4">
-                <p class="text-center">English</p>
-                <div class="radial-progress" style="--value:76; --size:9rem; --thickness: 8px;" role="progressbar">76%</div>
-            </div>
+            @foreach ($softskillList as $softskill)
+
+                {{-- SOFTSKILL ITEM --}}
+                <div class="flex flex-col gap-4">
+                    <p class="text-center">Problem Solving</p>
+                    <div class="radial-progress" style="--value:88; --size:9rem; --thickness: 8px;" role="progressbar">88%</div>
+                </div>
+
+                {{-- POP UP EDIT SOFTSKILL --}}
+                <dialog id="editExperiencePopUp-{{ $experience->id }}" class="modal">
+                    <div class="modal-box w-11/12 max-w-5xl">
+                        <h3 class="font-bold text-lg mb-2">Edit Experience</h3>
+                        
+                        <form action="{{ route('experiences.update', $experience->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <div class="flex flex-col">
+                                <label for="title" class="label label-text">Title</label>
+                                <input name="title" type="text" value="{{ $experience->title }}" placeholder="{{ $experience->title }}" class="input input-bordered mb-1" required/>
+                                <label for="description" class="label label-text">Description</label>
+                                <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="{{ $experience->description }}" required>{{ $experience->title }}</textarea>
+                                <label for="link" class="label label-text">Hyperlink</label>
+                                <input name="link" type="text" value="{{ $experience->title }}" placeholder="{{ $experience->link }}" class="input input-bordered mb-1" required/>
+                            </div>
+
+                            <div class="modal-action">
+                                    <!-- if there is a button, it will close the modal -->
+                                <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                                <form method="dialog">
+                                    <button class="btn btn-secondary">Close</button>
+                                </form>
+                            </div>
+                    </div>
+                </dialog>
+
+                {{-- POP UP DELETE SOFTSKILL --}}
+                <div id="deleteExperiencePopUp-{{ $experience->id }}" role="alert" class="alert fixed top-0 left-0 right-0 m-20 w-fit hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    <div>
+                        <h3 class="font-bold">Delete Confirmation!</h3>
+                        <div class="text">You will delete <span class="text-error font-semibold">{{ $experience->title }}</span>. Are you sure?</div>
+                    </div>
+                    <form action="{{ route('experiences.destroy', $experience->id) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <div>
+                            <button type="submit" class="btn btn-sm btn-error">Delete</button>
+                        </form>
+                        <a class="btn btn-sm" onclick="closeDeleteExperience({{ $experience->id }})">Cancel</a>
+                    </div>
+                </div>
+                
+                
+                {{-- SCRIPT FOR SOFTSKILL --}}
+                <script>
+                    function popupEditExperience(dialogId) {
+                        var modal = document.getElementById("editExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.showModal();
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function closeEditExperience(dialogId) {
+                        var modal = document.getElementById("editExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.closeModal();
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function popupDeleteExperience(dialogId) {
+                        var modal = document.getElementById("deleteExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.classList.remove('hidden');
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function closeDeleteExperience(dialogId) {
+                        var modal = document.getElementById("deleteExperiencePopUp-" + dialogId);
+                        if (modal) {
+                            modal.classList.add('hidden');
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function confirmDelete(experienceId) {
+                        var isConfirmed = confirm('Are you sure you want to delete this experience?');
+                        if (isConfirmed) {
+                            deleteExperience(experienceId);
+                        }
+                    }
+                </script>
+            @endforeach
         </div>
     </section>
 
@@ -292,7 +358,7 @@
             </div>
         </div>
     </section>
-    <!-- End of BLOG SECTION -->
+    <!-- End of PROJECT SECTION -->
 
     <!-- EXPERIENCE SECTION -->
     <section class="px-5 sm:px-20 py-10">
