@@ -17,19 +17,30 @@
 </head>
 <body>
     <div class="w-screen h-screen flex justify-center items-center bg-base-200">
+
+        
+
         <div class="card bg-base-100 shadow-xl h-fit items-center">
             <div class="card-body">
                 <h2 class="card-title">Login</h2>
-                <div class="form-control w-96">
-                    <label class="label">Username</label>
-                    <input type="text" placeholder="Type here" class="input input-bordered w-full" />
-                    <label class="label">Password</label>
-                    <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                @if (Session::has('status'))    
+                    <p class="text-error">
+                        {{ Session::get('message') }}
+                    </p>
+                @endif
+                <form method="POST" action="{{ route('authenticating') }}">
+                    @csrf
+                    <div class="form-control w-96">
+                    <label for="username" class="label">Username</label>
+                    <input name="username" type="text" placeholder="Type here" id="username" class="input input-bordered w-full" required/>
+                    <label for="password" class="label">Password</label>
+                    <input name="password" type="password" placeholder="Type here" id="password" class="input input-bordered w-full" required/>
                 </div>
                 <div class="divider"></div>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary w-full">Login</button>
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary w-full">Login</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
