@@ -156,32 +156,34 @@
     <!-- SKILLS SECTION -->
     <section class="sm:px-20 px-5 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Softskill</h2>
-        <button class="btn btn-sm btn-success mb-4">Add New +</button>
+        <button class="btn btn-sm btn-success mb-4" onclick="addSoftskillPopUp.showModal()">Add New +</button>
 
         <div class="flex flex-row flex-wrap gap-4 justify-center">
             @foreach ($softskillList as $softskill)
 
                 {{-- SOFTSKILL ITEM --}}
                 <div class="flex flex-col gap-4">
-                    <p class="text-center">Problem Solving</p>
-                    <div class="radial-progress" style="--value:88; --size:9rem; --thickness: 8px;" role="progressbar">88%</div>
+                    <p class="text-center">{{ $softskill->skill_name }}</p>
+                    <div class="radial-progress" style="--value:{{ $softskill->percentage }}; --size:9rem; --thickness: 8px;" role="progressbar">{{ $softskill->percentage }}%</div>
+                    <div class="flex flex-row gap-2 justify-center">
+                        <button class="btn btn-sm btn-warning mb-4" onclick="popupEditSoftskill({{$softskill->id}})">Edit</button>
+                        <button class="btn btn-sm btn-error mb-4" onclick="popupDeleteSoftskill({{$softskill->id}})">Delete</button>
+                    </div>
                 </div>
 
                 {{-- POP UP EDIT SOFTSKILL --}}
-                <dialog id="editExperiencePopUp-{{ $softskill->id }}" class="modal">
+                <dialog id="editSoftskillPopUp-{{ $softskill->id }}" class="modal">
                     <div class="modal-box w-11/12 max-w-5xl">
-                        <h3 class="font-bold text-lg mb-2">Edit Experience</h3>
+                        <h3 class="font-bold text-lg mb-2">Edit Softskill</h3>
                         
-                        <form action="{{ route('experiences.update', $softskill->id) }}" method="POST">
+                        <form action="{{ route('softskill.update', $softskill->id) }}" method="POST">
                             @csrf
                             @method('PATCH')
                             <div class="flex flex-col">
-                                <label for="title" class="label label-text">Title</label>
-                                <input name="title" type="text" value="{{ $softskill->title }}" placeholder="{{ $softskill->title }}" class="input input-bordered mb-1" required/>
-                                <label for="description" class="label label-text">Description</label>
-                                <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="{{ $softskill->description }}" required>{{ $softskill->title }}</textarea>
-                                <label for="link" class="label label-text">Hyperlink</label>
-                                <input name="link" type="text" value="{{ $softskill->title }}" placeholder="{{ $softskill->link }}" class="input input-bordered mb-1" required/>
+                                <label for="title" class="label label-text">Softskill Name</label>
+                                <input name="skill_name" type="text" value="{{ $softskill->skill_name }}" placeholder="{{ $softskill->skill_name }}" class="input input-bordered mb-1" required/>
+                                <label for="link" class="label label-text">Percentage</label>
+                                <input name="percentage" type="text" value="{{ $softskill->percentage }}" placeholder="{{ $softskill->percentage }}" class="input input-bordered mb-1" required/>
                             </div>
 
                             <div class="modal-action">
@@ -196,27 +198,27 @@
                 </dialog>
 
                 {{-- POP UP DELETE SOFTSKILL --}}
-                <div id="deleteExperiencePopUp-{{ $softskill->id }}" role="alert" class="alert fixed top-0 left-0 right-0 m-20 w-fit hidden">
+                <div id="deleteSoftskillPopUp-{{ $softskill->id }}" role="alert" class="alert fixed top-0 left-0 right-0 m-20 w-fit hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                     <div>
                         <h3 class="font-bold">Delete Confirmation!</h3>
-                        <div class="text">You will delete <span class="text-error font-semibold">{{ $softskill->title }}</span>. Are you sure?</div>
+                        <div class="text">You will delete <span class="text-error font-semibold">{{ $softskill->skill_name }}</span>. Are you sure?</div>
                     </div>
-                    <form action="{{ route('experiences.destroy', $softskill->id) }}" method="POST">
+                    <form action="{{ route('softskill.destroy', $softskill->id) }}" method="POST">
                         @csrf
                         @method('delete')
                         <div>
                             <button type="submit" class="btn btn-sm btn-error">Delete</button>
                         </form>
-                        <a class="btn btn-sm" onclick="closeDeleteExperience({{ $softskill->id }})">Cancel</a>
+                        <a class="btn btn-sm" onclick="closeDeleteSoftskill({{ $softskill->id }})">Cancel</a>
                     </div>
                 </div>
                 
                 
                 {{-- SCRIPT FOR SOFTSKILL --}}
                 <script>
-                    function popupEditExperience(dialogId) {
-                        var modal = document.getElementById("editExperiencePopUp-" + dialogId);
+                    function popupEditSoftskill(dialogId) {
+                        var modal = document.getElementById("editSoftskillPopUp-" + dialogId);
                         if (modal) {
                             modal.showModal();
                         } else {
@@ -224,8 +226,8 @@
                         }
                     }
 
-                    function closeEditExperience(dialogId) {
-                        var modal = document.getElementById("editExperiencePopUp-" + dialogId);
+                    function closeEditSoftskill(dialogId) {
+                        var modal = document.getElementById("editSoftskillPopUp-" + dialogId);
                         if (modal) {
                             modal.closeModal();
                         } else {
@@ -233,8 +235,8 @@
                         }
                     }
 
-                    function popupDeleteExperience(dialogId) {
-                        var modal = document.getElementById("deleteExperiencePopUp-" + dialogId);
+                    function popupDeleteSoftskill(dialogId) {
+                        var modal = document.getElementById("deleteSoftskillPopUp-" + dialogId);
                         if (modal) {
                             modal.classList.remove('hidden');
                         } else {
@@ -242,121 +244,287 @@
                         }
                     }
 
-                    function closeDeleteExperience(dialogId) {
-                        var modal = document.getElementById("deleteExperiencePopUp-" + dialogId);
+                    function closeDeleteSoftskill(dialogId) {
+                        var modal = document.getElementById("deleteSoftskillPopUp-" + dialogId);
                         if (modal) {
                             modal.classList.add('hidden');
                         } else {
                             console.error("Modal not found with ID: " + dialogId);
                         }
                     }
-
-                    function confirmDelete(experienceId) {
-                        var isConfirmed = confirm('Are you sure you want to delete this experience?');
-                        if (isConfirmed) {
-                            deleteExperience(experienceId);
-                        }
-                    }
                 </script>
             @endforeach
         </div>
+
+        {{-- POP UP ADD EXPERIENCE --}}
+        <dialog id="addSoftskillPopUp" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg mb-2">Add New Softskill</h3>
+                
+                <form action="{{ route('softskill.store') }}" method="POST">
+                    @csrf
+                    <div class="flex flex-col">
+                        <label class="label label-text">Softskill Name</label>
+                        <input name="skill_name" type="text" placeholder="Type here..." class="input input-bordered mb-1" />
+                        <label class="label label-text">Percentage</label>
+                        <input name="percentage" type="text" placeholder="Type here..." class="input input-bordered mb-1" />
+                    </div>
+
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button, it will close the modal -->
+                            <button class="btn btn-primary">Save</button>
+                            <button class="btn btn-secondary">Close</button>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        
+        {{-- ERROR MESSAGE --}}
+        @if (count($errors) > 0)
+            <div role="alert" class="alert alert-error fixed top-20 left-20 right-0 w-72">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>{{ $error }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (\Session::has('success'))
+            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72" id="successAlert">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{ \Session::get('success') }}</span>
+            </div>
+
+            <script>
+                var successAlert = document.getElementById('successAlert');
+
+                setTimeout(function() {
+                    successAlert.classList.add('opacity-0');
+                }, 4000);
+            </script>
+        
+        @elseif (\Session::has('error'))
+            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72" id="errorAlert">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{ \Session::get('success') }}</span>
+            </div>
+
+            <script>
+                var errorAlert = document.getElementById('errorAlert');
+
+                setTimeout(function() {
+                    errorAlert.classList.add('opacity-0');
+                }, 4000);
+            </script>
+        @endif
     </section>
 
     <!-- PROJECT SECTION -->
     <section class="sm:px-20 px-5 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Project</h2>
-        <button class="btn btn-sm btn-success mb-4">Add New +</button>
+        <button class="btn btn-sm btn-success mb-4" onclick="addProjectPopUp.showModal()">Add New +</button>
         <div class="flex flex-row flex-wrap gap-4 justify-center">
-            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <div class="flex flex-row gap-2">
-                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
-                        <button class="btn btn-sm btn-error mb-4">Delete</button>
-                    </div>
-                    <h2 class="card-title">
-                        Clicknic
-                        <div class="badge badge-info">Apps</div>         
-                    </h2>
-                    <p>
-                        A Clinic Medical Database System Management Application to manage Patient Data and Medicine Data 
-                        for Doctor, Pharmacist, and Patient.
-                    </p>
-                    <div class="card-actions justify-end">
-                        <div class="badge badge-outline">OOP</div>
-                        <div class="badge badge-outline">Java</div>
-                        <div class="badge badge-outline">SQL</div>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <div class="flex flex-row gap-2">
-                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
-                        <button class="btn btn-sm btn-error mb-4">Delete</button>
-                    </div>
-                    <h2 class="card-title">
-                        Sobat Listrik
-                        <div class="badge badge-info">UI/UX</div>
-                    </h2>
-                    <p>
-                        An User Interface and User Excperience Design 
-                        of a Mobile Application to Save Daily Electrical Energy Consumption 
-                        based on Sustainable Development Goals.
-                    </p>
-                    <div class="card-actions justify-end">
-                        <div class="badge badge-outline">Figma</div>
-                        <div class="badge badge-outline">Adobe Photoshop</div>
+            @foreach ($projectList as $project)
+
+                {{-- PROJECT ITEM --}}
+                <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
+                    <figure>
+                        @if ($project->image != '')
+                            <img src="{{ asset('storage/content/project/'.$project->image) }}" alt="{{ $project->project_name }}" class="w-max"/>
+                        @else
+                            <img src="{{ asset('project-default.jpg') }}" alt="{{ $project->project_name }}" class="w-max"/>
+                        @endif
+                        
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex flex-row gap-2">
+                            <button class="btn btn-sm btn-warning mb-4" onclick="popupEditProject({{$project->id}})">Edit</button>
+                            <button class="btn btn-sm btn-error mb-4" onclick="popupDeleteProject({{$project->id}})">Delete</button>
+                        </div>
+                        <h2 class="card-title">
+                            {{ $project->project_name }}
+                            <div class="badge badge-info">{{ $project->category }}</div>         
+                        </h2>
+                        <p>
+                            {{ $project->description }}
+                        </p>
+                        <div class="card-actions justify-end">
+                            <div class="badge badge-outline">{{ $project->badge }}</div>
+                        </div>
+                        
                     </div>
                 </div>
-            </div>
-            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <div class="flex flex-row gap-2">
-                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
-                        <button class="btn btn-sm btn-error mb-4">Delete</button>
+
+                {{-- POP UP EDIT PROJECT --}}
+                <dialog id="editProjectPopUp-{{ $project->id }}" class="modal">
+                    <div class="modal-box w-11/12 max-w-5xl">
+                        <h3 class="font-bold text-lg mb-2">Edit Project</h3>
+                        
+                        <form action="{{ route('project.update', $project->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+                            <div class="flex flex-col">
+                                <label for="project_name" class="label label-text">Project Name</label>
+                                <input name="project_name" type="text" value="{{ $project->project_name }}" placeholder="{{ $project->project_name }}" class="input input-bordered mb-1" required/>
+                                <label for="category" class="label label-text">Category</label>
+                                <input name="category" type="text" value="{{ $project->category }}" placeholder="{{ $project->category }}" class="input input-bordered mb-1" required/>
+                                <label for="badge" class="label label-text">Badge</label>
+                                <input name="badge" type="text" value="{{ $project->badge }}" placeholder="{{ $project->badge }}" class="input input-bordered mb-1" required/>
+                                <label for="image" class="label label-text">Image</label>
+                                <input name="image" type="file" class="file-input file-input-bordered w-full max-w-xs" value="{{ $project->image }}/>
+                                <label for="description" class="label label-text">Description</label>
+                                <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="{{ $project->description }}" required>{{ $project->description }}</textarea>
+                            </div>
+
+                            <div class="modal-action">
+                                    <!-- if there is a button, it will close the modal -->
+                                <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                                <form method="dialog">
+                                    <button class="btn btn-secondary">Close</button>
+                                </form>
+                            </div>
                     </div>
-                    <h2 class="card-title">
-                        Talent Review Process
-                        <div class="badge badge-info">RPA</div>
-                    </h2>
-                    <p>
-                        A Robot Processing Automation using IBM RPA Studio 
-                        to automate Talent Reviewing Process for employee 
-                        in IDStar from IFT Group
-                    </p>
-                    <div class="card-actions justify-end">
-                        <div class="badge badge-outline">Automation</div>
-                        <div class="badge badge-outline">IBM RPA Studio</div>
+                </dialog>
+
+                {{-- POP UP DELETE PROJECT --}}
+                <div id="deleteProjectPopUp-{{ $project->id }}" role="alert" class="alert fixed top-0 left-0 right-0 m-20 w-fit hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    <div>
+                        <h3 class="font-bold">Delete Confirmation!</h3>
+                        <div class="text">You will delete <span class="text-error font-semibold">{{ $project->project_name }}</span>. Are you sure?</div>
+                    </div>
+                    <form action="{{ route('project.destroy', $project->id) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <div>
+                            <button type="submit" class="btn btn-sm btn-error">Delete</button>
+                        </form>
+                        <a class="btn btn-sm" onclick="closeDeleteProject({{ $project->id }})">Cancel</a>
                     </div>
                 </div>
-            </div>
-            <div class="card w-max sm:w-1/5 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <div class="flex flex-row gap-2">
-                        <button class="btn btn-sm btn-warning mb-4">Edit</button>
-                        <button class="btn btn-sm btn-error mb-4">Delete</button>
-                    </div>
-                    <h2 class="card-title">
-                        Terbang Bersama Boemi
-                        <div class="badge badge-info">Film</div>
-                    </h2>
-                    <p>
-                        A Musical Theatre Drama that Fully Filmed and staged about 
-                        student that struggling with family limitations and fighting 
-                        for her love and her dreams.
-                    </p>
-                    <div class="card-actions justify-end">
-                        <div class="badge badge-outline">Cinematography</div>
-                        <div class="badge badge-outline">Adobe</div>
-                    </div>
-                </div>
-            </div>
+                
+                
+                {{-- SCRIPT FOR SOFTSKILL --}}
+                <script>
+                    function popupEditProject(dialogId) {
+                        var modal = document.getElementById("editProjectPopUp-" + dialogId);
+                        if (modal) {
+                            modal.showModal();
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function closeEditProject(dialogId) {
+                        var modal = document.getElementById("editProjectPopUp-" + dialogId);
+                        if (modal) {
+                            modal.closeModal();
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function popupDeleteProject(dialogId) {
+                        var modal = document.getElementById("deleteProjectPopUp-" + dialogId);
+                        if (modal) {
+                            modal.classList.remove('hidden');
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+
+                    function closeDeleteProject(dialogId) {
+                        var modal = document.getElementById("deleteProjectPopUp-" + dialogId);
+                        if (modal) {
+                            modal.classList.add('hidden');
+                        } else {
+                            console.error("Modal not found with ID: " + dialogId);
+                        }
+                    }
+                </script>
+            @endforeach    
         </div>
+
+        {{-- POP UP ADD PROJECT --}}
+        <dialog id="addProjectPopUp" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg mb-2">Add New Project</h3>
+                
+                <form action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="flex flex-col">
+                        <label for="project_name" class="label label-text">Project Name</label>
+                        <input name="project_name" type="text" placeholder="Add name..." class="input input-bordered mb-1" required/>
+                        <label for="category" class="label label-text">Category</label>
+                        <input name="category" type="text" placeholder="Add category..." class="input input-bordered mb-1" required/>
+                        <label for="badge" class="label label-text">Badge</label>
+                        <input name="badge" type="text" placeholder="Add badge..." class="input input-bordered mb-1" required/>
+                        <label for="image" class="label label-text">Image</label>
+                        <input name="image" type="file" class="file-input file-input-bordered w-full max-w-xs" />
+                        <label for="description" class="label label-text">Description</label>
+                        <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="Add description..." required>{{ $project->title }}</textarea>
+                    </div>
+
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button, it will close the modal -->
+                            <button class="btn btn-primary">Save</button>
+                            <button class="btn btn-secondary">Close</button>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        
+        {{-- ERROR MESSAGE --}}
+        @if (count($errors) > 0)
+            <div role="alert" class="alert alert-error fixed top-20 left-20 right-0 w-72">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>{{ $error }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (\Session::has('success'))
+            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72" id="successAlert">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{ \Session::get('success') }}</span>
+            </div>
+
+            <script>
+                var successAlert = document.getElementById('successAlert');
+
+                setTimeout(function() {
+                    successAlert.classList.add('opacity-0');
+                }, 4000);
+            </script>
+        
+        @elseif (\Session::has('error'))
+            <div role="alert" class="alert alert-success fixed top-20 left-20 right-0 w-72" id="errorAlert">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{ \Session::get('success') }}</span>
+            </div>
+
+            <script>
+                var errorAlert = document.getElementById('errorAlert');
+
+                setTimeout(function() {
+                    errorAlert.classList.add('opacity-0');
+                }, 4000);
+            </script>
+        @endif
     </section>
     <!-- End of PROJECT SECTION -->
 
