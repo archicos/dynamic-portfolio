@@ -58,7 +58,7 @@ class ProjectController extends Controller
             'image' => $newName, // menyimpan nama file yang baru di sini
         ]);
 
-        return redirect('/')->with('success','Data saved');
+        return redirect('/admin')->with('success','Data saved');
     }
 
     public function update(Request $request, string $id)
@@ -105,7 +105,7 @@ class ProjectController extends Controller
         ]);
 
 
-        return redirect('/')->with('success','Data Updated!');
+        return redirect('/admin')->with('success','Data Updated!');
     }
 
     public function destroy(string $id)
@@ -119,6 +119,6 @@ class ProjectController extends Controller
             Session::flash('message', 'Project successfully deleted!');
         }
 
-        return redirect('/')->with('success','Data Deleted!');
+        return redirect('/admin')->with('success','Data Deleted!');
     }
 }
