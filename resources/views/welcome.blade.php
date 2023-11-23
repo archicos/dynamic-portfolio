@@ -168,20 +168,20 @@
                 </div>
 
                 {{-- POP UP EDIT SOFTSKILL --}}
-                <dialog id="editExperiencePopUp-{{ $experience->id }}" class="modal">
+                <dialog id="editExperiencePopUp-{{ $softskill->id }}" class="modal">
                     <div class="modal-box w-11/12 max-w-5xl">
                         <h3 class="font-bold text-lg mb-2">Edit Experience</h3>
                         
-                        <form action="{{ route('experiences.update', $experience->id) }}" method="POST">
+                        <form action="{{ route('experiences.update', $softskill->id) }}" method="POST">
                             @csrf
                             @method('PATCH')
                             <div class="flex flex-col">
                                 <label for="title" class="label label-text">Title</label>
-                                <input name="title" type="text" value="{{ $experience->title }}" placeholder="{{ $experience->title }}" class="input input-bordered mb-1" required/>
+                                <input name="title" type="text" value="{{ $softskill->title }}" placeholder="{{ $softskill->title }}" class="input input-bordered mb-1" required/>
                                 <label for="description" class="label label-text">Description</label>
-                                <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="{{ $experience->description }}" required>{{ $experience->title }}</textarea>
+                                <textarea name="description" class="textarea textarea-bordered mb-1" placeholder="{{ $softskill->description }}" required>{{ $softskill->title }}</textarea>
                                 <label for="link" class="label label-text">Hyperlink</label>
-                                <input name="link" type="text" value="{{ $experience->title }}" placeholder="{{ $experience->link }}" class="input input-bordered mb-1" required/>
+                                <input name="link" type="text" value="{{ $softskill->title }}" placeholder="{{ $softskill->link }}" class="input input-bordered mb-1" required/>
                             </div>
 
                             <div class="modal-action">
@@ -196,19 +196,19 @@
                 </dialog>
 
                 {{-- POP UP DELETE SOFTSKILL --}}
-                <div id="deleteExperiencePopUp-{{ $experience->id }}" role="alert" class="alert fixed top-0 left-0 right-0 m-20 w-fit hidden">
+                <div id="deleteExperiencePopUp-{{ $softskill->id }}" role="alert" class="alert fixed top-0 left-0 right-0 m-20 w-fit hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                     <div>
                         <h3 class="font-bold">Delete Confirmation!</h3>
-                        <div class="text">You will delete <span class="text-error font-semibold">{{ $experience->title }}</span>. Are you sure?</div>
+                        <div class="text">You will delete <span class="text-error font-semibold">{{ $softskill->title }}</span>. Are you sure?</div>
                     </div>
-                    <form action="{{ route('experiences.destroy', $experience->id) }}" method="POST">
+                    <form action="{{ route('experiences.destroy', $softskill->id) }}" method="POST">
                         @csrf
                         @method('delete')
                         <div>
                             <button type="submit" class="btn btn-sm btn-error">Delete</button>
                         </form>
-                        <a class="btn btn-sm" onclick="closeDeleteExperience({{ $experience->id }})">Cancel</a>
+                        <a class="btn btn-sm" onclick="closeDeleteExperience({{ $softskill->id }})">Cancel</a>
                     </div>
                 </div>
                 
