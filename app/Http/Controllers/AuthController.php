@@ -29,7 +29,7 @@ class AuthController extends Controller
         Session::flash('status','failed');
         Session::flash('message','Credential account failed!');
 
-        return redirect('/login');
+        return redirect('/admin');
     }
 
     public function logout(Request $request)
