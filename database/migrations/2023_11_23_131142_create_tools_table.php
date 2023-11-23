@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('tools', function (Blueprint $table) {
             $table->id();
+            $table->string('tool_name');
+            $table->string('percentage');
             $table->timestamps();
         });
     }
