@@ -29,8 +29,8 @@ use App\Http\Controllers\ExperienceController;
 //     Route::get("/", [SoftskillController::class, "index"])->name("softskillList");
 // });
 
-Route::get("/", [HomeController::class, "index"])->name("portfolio");
-Route::get("/homepage", [HomeController::class, "home"])->name("portfolio");
+Route::get("/admin", [HomeController::class, "index"])->name("portfolio")->middleware('auth');
+Route::get("/", [HomeController::class, "home"])->name("portfolio");
 
 
 // Route::resource('/experience', 'ExperienceController');
