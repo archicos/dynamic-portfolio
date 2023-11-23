@@ -23,13 +23,13 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect('/admin');
         }
 
         Session::flash('status','failed');
         Session::flash('message','Credential account failed!');
 
-        return redirect('/admin');
+        return redirect('/login');
     }
 
     public function logout(Request $request)
