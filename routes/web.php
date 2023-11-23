@@ -35,10 +35,7 @@ Route::get("/", [HomeController::class, "home"])->name("portfolio");
 
 // Route::resource('/experience', 'ExperienceController');
 
-Route::post('/experiences/store', [ExperienceController::class, 'store'])->name('experiences.store');
-Route::get('/experiences/{id}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
-Route::patch('/experiences/{id}', [ExperienceController::class, 'update'])->name('experiences.update');
-Route::delete('/experiences/{id}/destroy', [ExperienceController::class, 'destroy'])->name('experiences.destroy');
+
 
 Route::get('/login', function () {
     return view('login');
@@ -64,3 +61,10 @@ Route::post('/project/store', [ProjectController::class, 'store'])->name('projec
 Route::get('/project/{id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
 Route::patch('/project/{id}', [ProjectController::class, 'update'])->name('project.update');
 Route::delete('/project/{id}/destroy', [ProjectController::class, 'destroy'])->name('project.destroy');
+
+// EXPERIENCE
+
+Route::post('/experiences/store', [ExperienceController::class, 'store'])->name('experiences.store');
+Route::get('/experiences/{id}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
+Route::patch('/experiences/{id}', [ExperienceController::class, 'update'])->name('experiences.update');
+Route::delete('/experiences/{id}/destroy', [ExperienceController::class, 'destroy'])->name('experiences.destroy');
