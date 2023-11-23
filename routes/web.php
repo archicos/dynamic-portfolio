@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExperienceController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\ExperienceController;
 //     return view('welcome');
 // })->middleware('auth');
 
-Route::get('/', [ExperienceController::class,'index'])->middleware('auth');
+Route::get('/', [HomeController::class,'index'])->name('welcome')->middleware('auth');
 
 // Route::resource('/experience', 'ExperienceController');
 
