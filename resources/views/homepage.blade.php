@@ -29,10 +29,12 @@
                         </svg>
                     </label>
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>About</a></li>
-                        <li><a>Portfolio</a></li>
-                        <li><a>Experience</a></li>
-                        <li><a>Education</a></li>
+                        <li><a href="#about-section">About</a></li>
+                        <li><a href="#tool-section">Tools</a></li>
+                        <li><a href="#skill-section">Skills</a></li>
+                        <li><a href="#project-section">Project</a></li>
+                        <li><a href="#experience-section">Experience</a></li>
+                        <li><a href="#education-section">Education</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,33 +70,37 @@
     <!-- End of DIFF -->
 
     <!-- ABOUT SECTION -->
-    <div class="flex flex-col sm:flex-row gap-10 sm:px-20 px-5 py-10">
-        <div class="flex flex-auto w-full sm:w-1/4 justify-center sm:justify-end items-center">
-            <img class="rounded-lg" src="{{ asset('img/about/malioboro.jpg') }}" />
-        </div>
-        <div class="flex flex-col flex-auto w-full sm:w-3/4 pr-0 sm:pr-40 gap-4">
-            <h1 class="font-bold text-xl">Archico Darius Simpar Sembiring</h1>
-            <p>
-                Hello, My Name is <strong>Archico</strong>. I have interest in Technologies and Creative Design. For Technology, 
-                I've learn about Software Engineering and Artificial Intelligence. And for Creative Design, 
-                I've learn about Graphic Design, Photography, and Cinematography. 
-                I often combine those two kind of my interest to became a complete unified interest. 
-                I have area of interest in digital arts, both in Graphic Design and UI/UX Design. 
-                I have a lot of experience in graphic design, from editing, illustrating, photography, videography. 
-                And then I implemented that experience into my study of Informatics in the form of UI/UX Design 
-                for developing websites and applications. I'm also on going to explore front-end and back-end developer, 
-                by leading and directing a few simple projects.
-            </p>
-            <div class="flex flex-row gap-4">
-                <button class="btn btn-info w-1/2 sm:btn-wide">Resume</button>
-                <button class="btn btn-info w-1/2 sm:btn-wide">LinkedIn</button>
+    <section id="about-section">
+
+        <div class="flex flex-col sm:flex-row gap-10 sm:px-20 px-5 py-10">
+            <div class="flex flex-auto w-full sm:w-1/4 justify-center sm:justify-end items-center">
+                <img class="rounded-lg" src="{{ asset('img/about/malioboro.jpg') }}" />
+            </div>
+            <div class="flex flex-col flex-auto w-full sm:w-3/4 pr-0 sm:pr-40 gap-4">
+                <h1 class="font-bold text-xl">Archico Darius Simpar Sembiring</h1>
+                <p>
+                    Hello, My Name is <strong>Archico</strong>. I have interest in Technologies and Creative Design. For Technology, 
+                    I've learn about Software Engineering and Artificial Intelligence. And for Creative Design, 
+                    I've learn about Graphic Design, Photography, and Cinematography. 
+                    I often combine those two kind of my interest to became a complete unified interest. 
+                    I have area of interest in digital arts, both in Graphic Design and UI/UX Design. 
+                    I have a lot of experience in graphic design, from editing, illustrating, photography, videography. 
+                    And then I implemented that experience into my study of Informatics in the form of UI/UX Design 
+                    for developing websites and applications. I'm also on going to explore front-end and back-end developer, 
+                    by leading and directing a few simple projects.
+                </p>
+                <div class="flex flex-row gap-4">
+                    <button class="btn btn-info w-1/2 sm:btn-wide">Resume</button>
+                    <button class="btn btn-info w-1/2 sm:btn-wide">LinkedIn</button>
+                </div>
             </div>
         </div>
-    </div>
+
+    </section>
     <!-- End of ABOUT SECTION -->
 
     <!-- TOOLS SECTION -->
-    <section class="sm:px-20 px-5 py-10">
+    <section id="tool-section" class="sm:px-20 px-5 py-10">
 
         <h2 class="font-bold text-2xl pb-4 text-center">Tools</h2>
 
@@ -144,7 +150,7 @@
     <!-- End of SKILLS SECTION -->
 
     <!-- SKILLS SECTION -->
-    <section class="sm:px-20 px-5 py-10">
+    <section id="skill-section" class="sm:px-20 px-5 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Softskill</h2>
 
         <div class="flex flex-row flex-wrap gap-4 justify-center">
@@ -161,7 +167,7 @@
     </section>
 
     <!-- PROJECT SECTION -->
-    <section class="sm:px-20 px-5 py-10">
+    <section id="project-section" class="sm:px-20 px-5 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Project</h2>
         <div class="flex flex-row flex-wrap gap-4 justify-center">
             @foreach ($projectList as $project)
@@ -196,7 +202,7 @@
     <!-- End of PROJECT SECTION -->
 
     <!-- EXPERIENCE SECTION -->
-    <section class="px-5 sm:px-20 py-10">
+    <section id="experience-section" class="px-5 sm:px-20 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Experience</h2>
         <div class="flex flex-col gap-4">
 
@@ -221,7 +227,7 @@
     <!-- End of Experience Section -->
 
     <!-- EDUCATION SECTION -->
-    <section class="px-5 sm:px-20 py-10">
+    <section id="education-section" class="px-5 sm:px-20 py-10">
         <h2 class="font-bold text-2xl pb-4 text-center">Education</h2>
 
         <ul class="timeline timeline-vertical sm:timeline-horizontal justify-center">
