@@ -18,6 +18,17 @@ use App\Http\Controllers\ExperienceController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware('auth');
+
+// Route::get('/', [HomeController::class,'index'])->name('welcome')->middleware('auth');
+
+// Route::middleware('auth')->group(function () {
+//     Route::get("/", [ExperienceController::class, "index"])->name("experienceList");
+//     Route::get("/", [SoftskillController::class, "index"])->name("softskillList");
+// });
+
 Route::get("/admin", [HomeController::class, "index"])->name("portfolio")->middleware('auth');
 Route::get("/", [HomeController::class, "home"])->name("portfolio");
 
